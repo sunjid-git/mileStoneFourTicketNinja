@@ -29,7 +29,7 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        <div id="bookingTicket" class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="bookNow" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
@@ -113,68 +113,74 @@
                 veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
                 voluptatibus quam</p>
         </div>
-        </section>
-
         <!--Thank You-->
+    </main>
 
 
-        <script>
-            // First class Ticket Count
-            function firstClassTicket(isFirstClass) {
-                const firstClassTicketText = document.getElementById('first-class');
-                const firstClassCount = parseInt(firstClassTicketText.value);
+    <script>
 
-                let bookedTicket = firstClassCount;
+        // First class Ticket Count
+        function firstClassTicket(isFirstClass) {
+            const firstClassTicketText = document.getElementById('first-class');
+            const firstClassCount = parseInt(firstClassTicketText.value);
 
-                if (isFirstClass == true) {
-                    bookedTicket = bookedTicket + 1;
-                }
-                if (isFirstClass == false && bookedTicket > 0) {
-                    bookedTicket = bookedTicket - 1;
-                }
-                
-                firstClassTicketText.value = bookedTicket;
+            let bookedTicket = firstClassCount;
 
-                ticketPriceCalculation();
+            if (isFirstClass == true) {
+                bookedTicket = bookedTicket + 1;
+            }
+            if (isFirstClass == false && bookedTicket > 0) {
+                bookedTicket = bookedTicket - 1;
             }
 
+            firstClassTicketText.value = bookedTicket;
 
-            // Economy class Ticket Count
-            function economyClassTicket(isEconomyClass) {
-                const economyClassTicketText = document.getElementById('economy-class');
-                const economyClassCount = parseInt(economyClassTicketText.value);
+            ticketPriceCalculation();
+        }
 
-                let bookedTicket = economyClassCount;
 
-                if (isEconomyClass == true) {
-                    bookedTicket = bookedTicket + 1;
-                }
-                if (isEconomyClass == false && bookedTicket > 0) {
-                    bookedTicket = bookedTicket - 1;
-                }
-                economyClassTicketText.value = bookedTicket;
+        // Economy class Ticket Count
+        function economyClassTicket(isEconomyClass) {
+            const economyClassTicketText = document.getElementById('economy-class');
+            const economyClassCount = parseInt(economyClassTicketText.value);
 
-                ticketPriceCalculation();
+            let bookedTicket = economyClassCount;
+
+            if (isEconomyClass == true) {
+                bookedTicket = bookedTicket + 1;
             }
-
-            // All calculations
-            function ticketPriceCalculation() {
-                const firstClassText = document.getElementById('first-class');
-                const firstClassCount = parseInt(firstClassText.value);
-
-                const economyClassText = document.getElementById('economy-class');
-                const economyClassCount = parseInt(economyClassText.value);
-
-                const subTotalCost = (firstClassCount * 150) + (economyClassCount * 100);
-                document.getElementById('subTotalTicketPrice').innerText = subTotalCost;
-
-                const chargedVat = subTotalCost * 0.1;
-                document.getElementById('vatCharged').innerText = chargedVat;
-
-                const totalCost = subTotalCost + chargedVat;
-                document.getElementById('totalTicketPrice').innerText = totalCost;
+            if (isEconomyClass == false && bookedTicket > 0) {
+                bookedTicket = bookedTicket - 1;
             }
-        </script>
+            economyClassTicketText.value = bookedTicket;
+
+            ticketPriceCalculation();
+        }
+
+        // All calculations
+        function ticketPriceCalculation() {
+            const firstClassText = document.getElementById('first-class');
+            const firstClassCount = parseInt(firstClassText.value);
+
+            const economyClassText = document.getElementById('economy-class');
+            const economyClassCount = parseInt(economyClassText.value);
+
+            const subTotalCost = (firstClassCount * 150) + (economyClassCount * 100);
+            document.getElementById('subTotalTicketPrice').innerText = subTotalCost;
+
+            const chargedVat = subTotalCost * 0.1;
+            document.getElementById('vatCharged').innerText = chargedVat;
+
+            const totalCost = subTotalCost + chargedVat;
+            document.getElementById('totalTicketPrice').innerText = totalCost;
+        }
+
+        // 
+        document.getElementById('bookNow').addEventListener('click',function(){
+           document.getElementById('bookingTicket').style.display = 'none';
+        });
+
+    </script>
 </body>
 
 </html>
