@@ -33,7 +33,7 @@
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
@@ -52,7 +52,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="first-class" class="inp-style inp-width" type="text" value="0">
+                    <input id="first-class" class="inp-style inp-width" type="number" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <div>
@@ -65,12 +65,14 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economy-class" class="inp-style inp-width" type="text" value="0">
+                    <input id="economy-class" class="inp-style inp-width" type="number" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <div>
-                        <div onclick="economyClassTicket(true)" class="btn btn-success"><i class="fas fa-plus">+</i></div>
-                        <div onclick="economyClassTicket(false)" class="btn btn-danger"><i class="fas fa-plus">-</i></div>
+                        <div onclick="economyClassTicket(true)" class="btn btn-success"><i class="fas fa-plus">+</i>
+                        </div>
+                        <div onclick="economyClassTicket(false)" class="btn btn-danger"><i class="fas fa-plus">-</i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,35 +119,37 @@
 
 
         <script>
-
             // First class Ticket Count
             function firstClassTicket(isFirstClass) {
                 const firstClassTicketText = document.getElementById('first-class');
                 const firstClassCount = parseInt(firstClassTicketText.value);
 
                 let bookedTicket = firstClassCount;
-                if(isFirstClass == true){
+
+                if (isFirstClass == true) {
                     bookedTicket = bookedTicket + 1;
                 }
-                if(isFirstClass == false && bookedTicket > 0){
+                if (isFirstClass == false && bookedTicket > 0) {
                     bookedTicket = bookedTicket - 1;
                 }
+                
                 firstClassTicketText.value = bookedTicket;
 
                 ticketPriceCalculation();
             }
 
 
-             // Economy class Ticket Count
+            // Economy class Ticket Count
             function economyClassTicket(isEconomyClass) {
                 const economyClassTicketText = document.getElementById('economy-class');
                 const economyClassCount = parseInt(economyClassTicketText.value);
 
                 let bookedTicket = economyClassCount;
-                if(isEconomyClass == true){
+
+                if (isEconomyClass == true) {
                     bookedTicket = bookedTicket + 1;
                 }
-                if(isEconomyClass == false && bookedTicket > 0){
+                if (isEconomyClass == false && bookedTicket > 0) {
                     bookedTicket = bookedTicket - 1;
                 }
                 economyClassTicketText.value = bookedTicket;
@@ -153,14 +157,15 @@
                 ticketPriceCalculation();
             }
 
-            function ticketPriceCalculation(){
+            // All calculations
+            function ticketPriceCalculation() {
                 const firstClassText = document.getElementById('first-class');
                 const firstClassCount = parseInt(firstClassText.value);
 
                 const economyClassText = document.getElementById('economy-class');
                 const economyClassCount = parseInt(economyClassText.value);
 
-                const subTotalCost = (firstClassCount * 150 ) + (economyClassCount * 100);
+                const subTotalCost = (firstClassCount * 150) + (economyClassCount * 100);
                 document.getElementById('subTotalTicketPrice').innerText = subTotalCost;
 
                 const chargedVat = subTotalCost * 0.1;
