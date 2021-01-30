@@ -80,7 +80,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="subTotal">500</span></p>
+                        <p>$ <span id="subTotalTicketPrice">500</span></p>
                     </div>
                 </div>
 
@@ -98,7 +98,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$ <span id="total">550</span></p>
+                        <p>$ <span id="totalTicketPrice">550</span></p>
                     </div>
                 </div>
             </div>
@@ -160,11 +160,14 @@
                 const economyClassText = document.getElementById('economy-class');
                 const economyClassCount = parseInt(economyClassText.value);
 
-                const subTotal = (firstClassCount * 150 ) + (economyClassCount * 100);
-                document.getElementById('subTotal').innerText = subTotal;
+                const subTotalCost = (firstClassCount * 150 ) + (economyClassCount * 100);
+                document.getElementById('subTotalTicketPrice').innerText = subTotalCost;
 
-                const vat = subTotal * 0.1;
-                document.getElementById('vatCharged').innerText = vat;
+                const chargedVat = subTotalCost * 0.1;
+                document.getElementById('vatCharged').innerText = chargedVat;
+
+                const totalCost = subTotalCost + chargedVat;
+                document.getElementById('totalTicketPrice').innerText = totalCost;
             }
         </script>
 </body>
