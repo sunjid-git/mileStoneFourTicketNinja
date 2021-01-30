@@ -52,7 +52,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="first-class" class="inp-style inp-width" type="text" name="" value="0">
+                    <input id="first-class" class="inp-style inp-width" type="text" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <div>
@@ -65,12 +65,12 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economy-class" class="inp-style inp-width" type="text" name="">
+                    <input id="economy-class" class="inp-style inp-width" type="text" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <div>
-                        <div class="btn btn-success"><i class="fas fa-plus">+</i></div>
-                        <div class="btn btn-danger"><i class="fas fa-plus">-</i></div>
+                        <div onclick="economyClassTicket(true)" class="btn btn-success"><i class="fas fa-plus">+</i></div>
+                        <div onclick="economyClassTicket(false)" class="btn btn-danger"><i class="fas fa-plus">-</i></div>
                     </div>
                 </div>
             </div>
@@ -117,18 +117,34 @@
 
 
         <script>
-            function firstClassTicket(isFirst) {
+            // First class Ticket Count
+            function firstClassTicket(isFirstClass) {
                 const firstClassTicketText = document.getElementById('first-class');
                 const firstClassCount = parseInt(firstClassTicketText.value);
 
                 let bookedTicket = firstClassCount;
-                if(isFirst == true){
+                if(isFirstClass == true){
                     bookedTicket = bookedTicket + 1;
                 }
-                if(isFirst == false && bookedTicket > 0){
+                if(isFirstClass == false && bookedTicket > 0){
                     bookedTicket = bookedTicket - 1;
                 }
                 firstClassTicketText.value = bookedTicket;
+                
+            }
+             // Economy class Ticket Count
+            function economyClassTicket(isEconomyClass) {
+                const economyClassTicketText = document.getElementById('economy-class');
+                const economyClassCount = parseInt(economyClassTicketText.value);
+
+                let bookedTicket = economyClassCount;
+                if(isEconomyClass == true){
+                    bookedTicket = bookedTicket + 1;
+                }
+                if(isEconomyClass == false && bookedTicket > 0){
+                    bookedTicket = bookedTicket - 1;
+                }
+                economyClassTicketText.value = bookedTicket;
                 
             }
         </script>
