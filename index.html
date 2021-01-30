@@ -50,16 +50,22 @@
                 </div>
             </div>
             <div class="input-group f-class">
+
                 <div>
                     <label for="">First Class ($150)</label>
                     <input id="first-class" class="inp-style inp-width" type="number" value="0">
                 </div>
+
                 <div class="plus-minus-btn">
                     <div>
+
                         <div onclick="firstClassTicket(true)" class="btn btn-success"><i class="fas fa-plus">+</i></div>
+
                         <div onclick="firstClassTicket(false)" class="btn btn-danger"><i class="fas fa-plus">-</i></div>
+
                     </div>
                 </div>
+
             </div>
 
             <div class="input-group f-class">
@@ -68,14 +74,21 @@
                     <input id="economy-class" class="inp-style inp-width" type="number" value="0">
                 </div>
                 <div class="plus-minus-btn">
+
                     <div>
+
                         <div onclick="economyClassTicket(true)" class="btn btn-success"><i class="fas fa-plus">+</i>
                         </div>
+
                         <div onclick="economyClassTicket(false)" class="btn btn-danger"><i class="fas fa-plus">-</i>
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
@@ -114,12 +127,15 @@
                 voluptatibus quam</p>
         </div>
 
-        <div id="greetMessage" >
-            <h1 >Welcome aboard!</h1>
+        <!-- message for next page -->
+        <div id="greetMessage">
+            <h1>Welcome aboard!</h1>
             <br>
-            <h2 >You have confirmed <span id="confirmedTickets">0</span> tickets & total price is $<span id="totalTicketCost"> 0</span>.</h2>
+            <h2>You have confirmed <span id="confirmedTickets">0</span>
+                tickets & total price is $ <span id="totalTicketCost"> 0</span>.
+            </h2>
             <br>
-            <h2 class="text-danger" >Have a nice trip!</h2>
+            <h2 class="text-danger">Have a nice trip!</h2>
         </div>
 
 
@@ -128,7 +144,6 @@
 
 
     <script>
-
         // First class Ticket Count
         function firstClassTicket(isFirstClass) {
             const firstClassTicketText = document.getElementById('first-class');
@@ -194,11 +209,10 @@
         }
 
         // to visit another page
-        document.getElementById('bookNow').addEventListener('click',function(){
-           document.getElementById('bookingTicket').style.display = 'none';
-           document.getElementById('greetMessage').style.display = 'block';
+        document.getElementById('bookNow').addEventListener('click', function () {
+            document.getElementById('bookingTicket').style.display = 'none';
+            document.getElementById('greetMessage').style.display = 'block';
         });
-
     </script>
 </body>
 
