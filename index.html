@@ -11,7 +11,7 @@
         rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./bootstrap.min.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
@@ -52,22 +52,26 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="firstTicketCount" class="inp-style inp-width" type="number" name="">
+                    <input id="first-class" class="inp-style inp-width" type="text" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <button><span onclick="firstClassTicket(true)">+</span></button>
-
-                    <p><span onclick="firstClassTicket(false)">-</span></p>
+                    <div>
+                        <div onclick="firstClassTicket(true)" class="btn btn-success"><i class="fas fa-plus">+</i></div>
+                        <div onclick="firstClassTicket(false)" class="btn btn-danger"><i class="fas fa-plus">-</i></div>
+                    </div>
                 </div>
             </div>
 
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economyTicketCount" class="inp-style inp-width" type="number" name="">
+                    <input id="economy-class" class="inp-style inp-width" type="text" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><span id="economyPlusBtn">+</span><span id="economyMinusBtn">-</span></p>
+                    <div>
+                        <div class="btn btn-success"><i class="fas fa-plus">+</i></div>
+                        <div class="btn btn-danger"><i class="fas fa-plus">-</i></div>
+                    </div>
                 </div>
             </div>
             <div class="calculations">
@@ -112,11 +116,22 @@
         <!--Thank You-->
 
 
-
         <script>
-         
-        </script>
+            function firstClassTicket(isFirst) {
+                const firstClassTicketText = document.getElementById('first-class');
+                const firstClassCount = parseInt(firstClassTicketText.value);
 
+                let bookedTicket = firstClassCount;
+                if(isFirst == true){
+                    bookedTicket = bookedTicket + 1;
+                }
+                if(isFirst == false && bookedTicket > 0){
+                    bookedTicket = bookedTicket - 1;
+                }
+                firstClassTicketText.value = bookedTicket;
+                
+            }
+        </script>
 </body>
 
 </html>
