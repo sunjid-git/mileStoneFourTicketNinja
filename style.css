@@ -125,3 +125,10 @@ nav ul li a:hover, a.active{
 .bookingTicket{
     display: block; 
 }
+#greetMessage{
+    margin-top: 250px;
+    display: none; 
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}

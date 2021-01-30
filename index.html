@@ -113,6 +113,12 @@
                 veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
                 voluptatibus quam</p>
         </div>
+
+        <div id="greetMessage" >
+            <h1>You have purchased the tickets.</h1>
+            <h2 >Have a nice trip!</h2>
+        </div>
+
         <!--Thank You-->
     </main>
 
@@ -175,9 +181,10 @@
             document.getElementById('totalTicketPrice').innerText = totalCost;
         }
 
-        // 
+        // to visit another page
         document.getElementById('bookNow').addEventListener('click',function(){
            document.getElementById('bookingTicket').style.display = 'none';
+           document.getElementById('greetMessage').style.display = 'block';
         });
 
     </script>
