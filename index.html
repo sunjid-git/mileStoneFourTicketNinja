@@ -80,7 +80,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$ <span id="subTotal">500</span></p>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$ <span id="vatCharged">50</span></p>
                     </div>
                 </div>
                 <hr>
@@ -98,7 +98,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$ <span id="total">550</span></p>
                     </div>
                 </div>
             </div>
@@ -117,6 +117,7 @@
 
 
         <script>
+
             // First class Ticket Count
             function firstClassTicket(isFirstClass) {
                 const firstClassTicketText = document.getElementById('first-class');
@@ -130,8 +131,11 @@
                     bookedTicket = bookedTicket - 1;
                 }
                 firstClassTicketText.value = bookedTicket;
-                
+
+                ticketPriceCalculation();
             }
+
+
              // Economy class Ticket Count
             function economyClassTicket(isEconomyClass) {
                 const economyClassTicketText = document.getElementById('economy-class');
@@ -145,7 +149,19 @@
                     bookedTicket = bookedTicket - 1;
                 }
                 economyClassTicketText.value = bookedTicket;
-                
+
+                ticketPriceCalculation();
+            }
+
+            function ticketPriceCalculation(){
+                const firstClassText = document.getElementById('first-class');
+                const firstClassCount = parseInt(firstClassText.value);
+
+                const economyClassText = document.getElementById('economy-class');
+                const economyClassCount = parseInt(economyClassText.value);
+
+                const subTotal = (firstClassCount * 150 ) + (economyClassCount * 100);
+                document.getElementById('subTotal').innerText = subTotal;
             }
         </script>
 </body>
